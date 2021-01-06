@@ -1,19 +1,12 @@
 package com.recipme.dataformat;
 
-public class TestData {
-    private final int id;
-    private final String name;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.immutables.value.Value;
 
-    public TestData(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
+@Value.Immutable
+@JsonSerialize(as = ImmutableTestData.class)
+public
+interface TestData {
+    int getId();
+    String getName();
 }
